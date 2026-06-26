@@ -221,7 +221,8 @@ function loadProducts(data = products){
     });
 
     table.innerHTML = html;
-
+    document.getElementById("resultCount").innerHTML =
+    `Showing ${data.length} / ${products.length} products`;
 }
 function showSection(id){
 
@@ -433,6 +434,20 @@ function fillFilterOptions(){
     fill("filterSize",sizes);
 
     fill("filterLocation",warehouses);
+    
+
+}
+function resetFilter(){
+
+    document
+    .querySelectorAll(".filter-row input")
+    .forEach(i=>i.value="");
+
+    document
+    .querySelectorAll(".filter-row select")
+    .forEach(s=>s.selectedIndex=0);
+
+    loadProducts(products);
 
 }
 fillFilterOptions();

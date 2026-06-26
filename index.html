@@ -55,7 +55,17 @@
             
 
             <h1>RFID Products</h1>
-            
+            <div class="product-toolbar">
+
+                <span id="resultCount">
+                    Showing 1000 / 1000 products
+                </span>
+
+                <button onclick="resetFilter()">
+                    Reset Filter
+                </button>
+
+            </div>            
             <find> 
                 <input type="text" id="search" onkeyup="searchTable()">
                 <script>
@@ -70,73 +80,73 @@
                 }
             </script>
             </find>
-            <table id="myTable" border="1">
+            <div class="table-container"></div>
+                <table id="myTable" border="1">
 
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>EPC</th>
-                        <th>SKU</th>
-                        <th>Product</th>
-                        <th>Category</th>
-                        <th>Color</th>
-                        <th>Size</th>
-                        <th>Qty</th>
-                        <th>Price</th>
-                        <th>Location</th>
-                        <th>Status</th>
-                    </tr>   
-                </thead>
-                <tr class="filter-row">
-                    <th><input id="filterId" placeholder="ID"></th>
+                    <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>EPC</th>
+                                <th>SKU</th>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Color</th>
+                                <th>Size</th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                            </tr>   
+                        <tr class="filter-row">
+                            <th><input id="filterId" placeholder="ID"></th>
 
-                    <th><input id="filterEPC" placeholder="EPC"></th>
+                            <th><input id="filterEPC" placeholder="EPC"></th>
 
-                    <th><input id="filterSKU" placeholder="SKU"></th>
+                            <th><input id="filterSKU" placeholder="SKU"></th>
 
-                    <th><input id="filterName" placeholder="Product"></th>
+                            <th><input id="filterName" placeholder="Product"></th>
 
-                    <th>
-                        <select id="filterCategory">
-                            <option value="">All</option>
-                        </select>
-                    </th>
+                            <th>
+                                <select id="filterCategory">
+                                    <option value="">All</option>
+                                </select>
+                            </th>
 
-                    <th>
-                        <select id="filterColor">
-                            <option value="">All</option>
-                        </select>
-                    </th>
+                            <th>
+                                <select id="filterColor">
+                                    <option value="">All</option>
+                                </select>
+                            </th>
 
-                    <th>
-                        <select id="filterSize">
-                            <option value="">All</option>
-                        </select>
-                    </th>
+                            <th>
+                                <select id="filterSize">
+                                    <option value="">All</option>
+                                </select>
+                            </th>
 
-                    <th><input id="filterQty" placeholder="Qty"></th>
+                            <th><input id="filterQty" placeholder="Qty"></th>
 
-                    <th><input id="filterPrice" placeholder="Price"></th>
+                            <th><input id="filterPrice" placeholder="Price"></th>
 
-                    <th>
-                        <select id="filterLocation">
-                            <option value="">All</option>
-                        </select>
-                    </th>
+                            <th>
+                                <select id="filterLocation">
+                                    <option value="">All</option>
+                                </select>
+                            </th>
 
-                    <th>
-                        <select id="filterStatus">
-                            <option value="">All</option>
-                            <option>In Stock</option>
-                            <option>Low Stock</option>
-                        </select>
-                    </th>
-                </tr>
-                
-                <tbody id="productTable"></tbody>
+                            <th>
+                                <select id="filterStatus">
+                                    <option value="">All</option>
+                                    <option>In Stock</option>
+                                    <option>Low Stock</option>
+                                </select>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="productTable"></tbody>
 
-            </table>
-
+                </table>
+            </div>
         </div>
 
         <!-- RFID Scan -->

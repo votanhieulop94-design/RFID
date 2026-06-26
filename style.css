@@ -5,11 +5,23 @@ body{
 }
 
 .sidebar{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
     width:220px;
+
+    height:100vh;
+
     background:#1f2937;
-    color:white;
-    min-height:100vh;
+
     padding:20px;
+
+    overflow-y:auto;
+
 }
 
 .sidebar button{
@@ -21,8 +33,11 @@ body{
 }
 
 .content{
-    flex:1;
+
+    margin-left:260px;
+
     padding:20px;
+
 }
 
 .card{
@@ -54,4 +69,54 @@ button{
 #orderResult{
     margin-top:20px;
     font-size:18px;
+}
+thead th{
+
+    position:sticky;
+
+    top:0;
+
+    background:#1f2937;
+
+    color:white;
+
+    z-index:10;
+
+}
+.filter-row th{
+
+    position:sticky;
+
+    top:42px;
+
+    background:white;
+
+    z-index:9;
+
+}
+.table-container{
+    max-height:650px;
+    overflow-y:auto;
+    overflow-x:auto;
+    border:1px solid #ddd;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead th{
+    position:sticky;
+    top:0;
+    background:#1f2937;
+    color:white;
+    z-index:100;
+}
+
+.filter-row th{
+    position:sticky;
+    top:42px;
+    background:white;
+    z-index:99;
 }

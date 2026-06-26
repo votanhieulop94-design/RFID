@@ -196,35 +196,33 @@ function filterProducts(){
 }
 function loadProducts(data = products){
 
-    let table =
-        document.getElementById("productTable");
+    const table = document.getElementById("productTable");
 
-    table.innerHTML="";
+    let html = "";
 
-    data.forEach(p=>{
+    data.forEach(p => {
 
-        table.innerHTML += `
+        html += `
         <tr>
-
-        <td>${p.id}</td>
-        <td>${p.epc}</td>
-        <td>${p.sku}</td>
-        <td>${p.productName}</td>
-        <td>${p.category}</td>
-        <td>${p.color}</td>
-        <td>${p.size}</td>
-        <td>${p.quantity}</td>
-        <td>${p.price.toLocaleString()} đ</td>
-        <td>${p.location}</td>
-        <td>${p.status}</td>
-
+            <td>${p.id}</td>
+            <td>${p.epc}</td>
+            <td>${p.sku}</td>
+            <td>${p.productName}</td>
+            <td>${p.category}</td>
+            <td>${p.color}</td>
+            <td>${p.size}</td>
+            <td>${p.quantity}</td>
+            <td>${p.price.toLocaleString()} đ</td>
+            <td>${p.location}</td>
+            <td>${p.status}</td>
         </tr>
         `;
 
     });
 
-}
+    table.innerHTML = html;
 
+}
 function showSection(id){
 
 document.querySelectorAll(".section")

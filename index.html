@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>RFID Smart Warehouse Simulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>RFID Logistics</h2>
+
+        <button onclick="showSection('dashboard')">Dashboard</button>
+        <button onclick="showSection('products')">Products</button>
+        <button onclick="showSection('scan')">RFID Scan</button>
+        <button onclick="showSection('inventory')">Inventory</button>
+        <button onclick="showSection('warehouse')">Mini Warehouse</button>
+
+    </div>
+
+    <div class="content">
+
+        <!-- Dashboard -->
+<div id="dashboard" class="section">
+
+    <h1>Dashboard</h1>
+
+    <div class="card">
+        Total Products:
+        <span id="totalProducts">0</span>
+    </div>
+
+    <div class="card">
+        Total Inventory:
+        <span id="totalInventory">0</span>
+    </div>
+
+    <div class="card">
+        Inventory Value:
+        <span id="inventoryValue">0</span>
+    </div>
+
+    <div class="card">
+        RFID Scans Today:
+        <span id="scanCount">0</span>
+    </div>
+
+</div>
+
+        <!-- Products -->
+        <div id="products" class="section hidden">
+            
+
+            <h1>RFID Products</h1>
+            
+            <find> 
+                <input type="text" id="search" onkeyup="searchTable()">
+                <script>
+                function searchTable() {
+                    let keyword = document.getElementById("search").value.toLowerCase();
+                    let rows = document.querySelectorAll("#myTable tr");
+
+                    rows.forEach(row => {
+                        let text = row.textContent.toLowerCase();
+                        row.style.display = text.includes(keyword) ? "" : "none";
+                    });
+                }
+            </script>
+            </find>
+            <table id="myTable" border="1">
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>EPC</th>
+                        <th>SKU</th>
+                        <th>Product</th>
+                        <th>Category</th>
+                        <th>Color</th>
+                        <th>Size</th>
+                        <th>Qty</th>
+                        <th>Price</th>
+                        <th>Location</th>
+                        <th>Status</th>
+                    </tr>   
+                </thead>
+
+                <tbody id="productTable"></tbody>
+
+            </table>
+
+        </div>
+
+        <!-- RFID Scan -->
+        <div id="scan" class="section hidden">
+
+            <h1>RFID Scan Simulation</h1>
+
+            <button onclick="scanRFID()">
+                Simulate RFID Scan
+            </button>
+
+            <div id="scanResult"></div>
+
+        </div>
+
+        <!-- Inventory -->
+        <div id="inventory" class="section hidden">
+
+            <h1>Inventory</h1>
+
+            <ul>
+    <li>Warehouse: <span id="warehouseCount"></span></li>
+    <li>Store A: <span id="storeACount"></span></li>
+    <li>Store B: <span id="storeBCount"></span></li>
+    <li>Store C: <span id="storeCCount"></span></li>
+    <li>Store D: <span id="storeDCount"></span></li>
+</ul>
+
+        </div>
+
+        <!-- Mini Warehouse -->
+        <div id="warehouse" class="section hidden">
+
+            <h1>Zara Mini Warehouse</h1>
+
+            <select id="productSelect"></select>
+                
+            </select>
+
+            <button onclick="placeOrder()">
+                Place Order
+            </button>
+
+            <div id="orderResult"></div>
+
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

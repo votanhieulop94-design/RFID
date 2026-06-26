@@ -1,0 +1,57 @@
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    display:flex;
+}
+
+.sidebar{
+    width:220px;
+    background:#1f2937;
+    color:white;
+    min-height:100vh;
+    padding:20px;
+}
+
+.sidebar button{
+    width:100%;
+    padding:12px;
+    margin-bottom:10px;
+    border:none;
+    cursor:pointer;
+}
+
+.content{
+    flex:1;
+    padding:20px;
+}
+
+.card{
+    background:#f4f4f4;
+    padding:20px;
+    margin-bottom:15px;
+    border-radius:8px;
+}
+
+.hidden{
+    display:none;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+button{
+    padding:10px 20px;
+}
+
+#scanResult,
+#orderResult{
+    margin-top:20px;
+    font-size:18px;
+}

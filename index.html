@@ -87,7 +87,52 @@
                         <th>Status</th>
                     </tr>   
                 </thead>
+                <tr class="filter-row">
+                    <th><input id="filterId" placeholder="ID"></th>
 
+                    <th><input id="filterEPC" placeholder="EPC"></th>
+
+                    <th><input id="filterSKU" placeholder="SKU"></th>
+
+                    <th><input id="filterName" placeholder="Product"></th>
+
+                    <th>
+                        <select id="filterCategory">
+                            <option value="">All</option>
+                        </select>
+                    </th>
+
+                    <th>
+                        <select id="filterColor">
+                            <option value="">All</option>
+                        </select>
+                    </th>
+
+                    <th>
+                        <select id="filterSize">
+                            <option value="">All</option>
+                        </select>
+                    </th>
+
+                    <th><input id="filterQty" placeholder="Qty"></th>
+
+                    <th><input id="filterPrice" placeholder="Price"></th>
+
+                    <th>
+                        <select id="filterLocation">
+                            <option value="">All</option>
+                        </select>
+                    </th>
+
+                    <th>
+                        <select id="filterStatus">
+                            <option value="">All</option>
+                            <option>In Stock</option>
+                            <option>Low Stock</option>
+                        </select>
+                    </th>
+                </tr>
+                
                 <tbody id="productTable"></tbody>
 
             </table>

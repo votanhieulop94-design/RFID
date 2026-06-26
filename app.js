@@ -88,49 +88,142 @@ for(let i = 1; i <= 1000; i++){
 
 let scanCounter = 0;
 
-function loadProducts(){
+function filterProducts(){
+
+    let id = document.getElementById("filterId").value.toLowerCase();
+
+    let epc = document.getElementById("filterEPC").value.toLowerCase();
+
+    let sku = document.getElementById("filterSKU").value.toLowerCase();
+
+    let name = document.getElementById("filterName").value.toLowerCase();
+
+    let category = document.getElementById("filterCategory").value;
+
+    let color = document.getElementById("filterColor").value;
+
+    let size = document.getElementById("filterSize").value;
+
+    let qty = document.getElementById("filterQty").value;
+
+    let price = document.getElementById("filterPrice").value;
+
+    let location = document.getElementById("filterLocation").value;
+
+    let status = document.getElementById("filterStatus").value;
+
+    let result = products.filter(p =>
+
+        p.id.toString().includes(id) &&
+
+        p.epc.toLowerCase().includes(epc) &&
+
+        p.sku.toLowerCase().includes(sku) &&
+
+        p.productName.toLowerCase().includes(name) &&
+
+        (category=="" || p.category==category) &&
+
+        (color=="" || p.color==color) &&
+
+        (size=="" || p.size==size) &&
+
+        (qty=="" || p.quantity.toString().includes(qty)) &&
+
+        (price=="" || p.price.toString().includes(price)) &&
+
+        (location=="" || p.location==location) &&
+
+        (status=="" || p.status==status)
+
+    );
+
+    loadProducts(result);
+
+}
+function filterProducts(){
+
+    let id = document.getElementById("filterId").value.toLowerCase();
+
+    let epc = document.getElementById("filterEPC").value.toLowerCase();
+
+    let sku = document.getElementById("filterSKU").value.toLowerCase();
+
+    let name = document.getElementById("filterName").value.toLowerCase();
+
+    let category = document.getElementById("filterCategory").value;
+
+    let color = document.getElementById("filterColor").value;
+
+    let size = document.getElementById("filterSize").value;
+
+    let qty = document.getElementById("filterQty").value;
+
+    let price = document.getElementById("filterPrice").value;
+
+    let location = document.getElementById("filterLocation").value;
+
+    let status = document.getElementById("filterStatus").value;
+
+    let result = products.filter(p =>
+
+        p.id.toString().includes(id) &&
+
+        p.epc.toLowerCase().includes(epc) &&
+
+        p.sku.toLowerCase().includes(sku) &&
+
+        p.productName.toLowerCase().includes(name) &&
+
+        (category=="" || p.category==category) &&
+
+        (color=="" || p.color==color) &&
+
+        (size=="" || p.size==size) &&
+
+        (qty=="" || p.quantity.toString().includes(qty)) &&
+
+        (price=="" || p.price.toString().includes(price)) &&
+
+        (location=="" || p.location==location) &&
+
+        (status=="" || p.status==status)
+
+    );
+
+    loadProducts(result);
+
+}
+function loadProducts(data = products){
 
     let table =
         document.getElementById("productTable");
 
-    table.innerHTML = "";
+    table.innerHTML="";
 
-    products.forEach(p => {
+    data.forEach(p=>{
 
         table.innerHTML += `
-
         <tr>
 
         <td>${p.id}</td>
-
         <td>${p.epc}</td>
-
         <td>${p.sku}</td>
-
         <td>${p.productName}</td>
-
         <td>${p.category}</td>
-
         <td>${p.color}</td>
-
         <td>${p.size}</td>
-
         <td>${p.quantity}</td>
-
         <td>${p.price.toLocaleString()} đ</td>
-
         <td>${p.location}</td>
-
         <td>${p.status}</td>
 
         </tr>
-
         `;
 
     });
 
 }
-
 
 function showSection(id){
 
@@ -289,6 +382,7 @@ function updateInventory() {
     document.getElementById(
         "storeDCount"
     ).innerText = storeD;
+    
 
 }
 loadProducts();
@@ -319,7 +413,41 @@ function loadProductDropdown(){
     });
 
 }
+function fillFilterOptions(){
+
+    function fill(id,array){
+
+        let select=document.getElementById(id);
+
+        array.forEach(v=>{
+
+            select.innerHTML +=
+            `<option>${v}</option>`;
+
+        });
+
+    }
+
+    fill("filterCategory",categories);
+
+    fill("filterColor",colors);
+
+    fill("filterSize",sizes);
+
+    fill("filterLocation",warehouses);
+
+}
+fillFilterOptions();
 loadProducts();
 updateDashboard();
 updateInventory();
 loadProductDropdown();
+document
+.querySelectorAll(".filter-row input, .filter-row select")
+.forEach(item => {
+
+    item.addEventListener("input", filterProducts);
+
+    item.addEventListener("change", filterProducts);
+
+});

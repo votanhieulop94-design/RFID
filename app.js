@@ -450,6 +450,88 @@ function resetFilter(){
     loadProducts(products);
 
 }
+function findProduct(){
+
+    let keyword =
+        document
+        .getElementById("warehouseSearch")
+        .value
+        .toLowerCase()
+        .trim();
+
+    let item = products.find(p =>
+
+        p.productName.toLowerCase().includes(keyword) ||
+
+        p.sku.toLowerCase().includes(keyword) ||
+
+        p.epc.toLowerCase().includes(keyword)
+
+    );
+
+    if(!item){
+
+        document.getElementById("orderResult").innerHTML =
+
+        "<h3 style='color:red'>Product not found</h3>";
+
+        return;
+
+    }
+
+    showProductInfo(item);
+
+}
+function findSelectedProduct(){
+
+    let selected =
+        document.getElementById("productSelect").value;
+
+    let item =
+        products.find(
+            p => p.productName === selected
+        );
+
+    if(item){
+
+        showProductInfo(item);
+
+    }
+
+}
+function showProductInfo(item){
+
+    document.getElementById("orderResult").innerHTML =
+
+    `
+    <h2>Product Information</h2>
+
+    <b>Product:</b> ${item.productName}<br><br>
+
+    <b>SKU:</b> ${item.sku}<br><br>
+
+    <b>EPC:</b> ${item.epc}<br><br>
+
+    <b>Category:</b> ${item.category}<br><br>
+
+    <b>Color:</b> ${item.color}<br><br>
+
+    <b>Size:</b> ${item.size}<br><br>
+
+    <b>Price:</b> ${item.price.toLocaleString()} đ<br><br>
+
+    <hr>
+
+    <h2>Warehouse Information</h2>
+
+    <b>Location:</b> ${item.location}<br><br>
+
+    <b>Quantity:</b> ${item.quantity}<br><br>
+
+    <b>Status:</b> ${item.status}
+    `;
+
+}
 fillFilterOptions();
 loadProducts();
 updateDashboard();

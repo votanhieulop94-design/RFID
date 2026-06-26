@@ -175,24 +175,40 @@
     <li>Store D: <span id="storeDCount"></span></li>
 </ul>
 
-        </div>
-
+    </div>
         <!-- Mini Warehouse -->
         <div id="warehouse" class="section hidden">
 
             <h1>Zara Mini Warehouse</h1>
 
+            <div class="warehouse-search">
+                <input
+                    type="text"
+                    id="warehouseSearch"
+                    placeholder="Search product, SKU, EPC..."
+                >
+
+                <button onclick="findProduct()">
+                    Search
+                </button>
+            </div>
+
+            <br>
+
             <select id="productSelect"></select>
-                
-            </select>
 
             <button onclick="placeOrder()">
                 Place Order
             </button>
 
+            <button onclick="findSelectedProduct()">
+                Find Product
+            </button>
+
             <div id="orderResult"></div>
 
         </div>
+        
 
     </div>
 
